@@ -914,10 +914,9 @@ MonoBehaviour:
   Name: Lover
   interactionManager: {fileID: 1060533085}
   LostPossessions:
-  - {fileID: 1276830072}
-  - {fileID: 1070359074}
-  - {fileID: 1626734624}
-  - {fileID: 384442779}
+  - {fileID: 372810344}
+  - {fileID: 1823792715}
+  - {fileID: 894088378}
 --- !u!4 &441075489
 Transform:
   m_ObjectHideFlags: 0
