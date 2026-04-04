@@ -24,7 +24,7 @@ public class InteractionManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 StoryObject checkedObject = hit.collider.GetComponent<StoryObject>();
-
+                Debug.Log("Checking " + checkedObject.ObjectName);
                 if (checkedObject != null && currentStoryObjects.Contains(checkedObject))
                 {
                     Debug.Log("Found " + checkedObject.ObjectName);
