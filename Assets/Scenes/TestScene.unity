@@ -2358,6 +2358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInfo
   Name: Lover
+  interactionManager: {fileID: 1060533085}
   LostPossessions:
   - {fileID: 384442779}
   - {fileID: 1070359074}
