@@ -1,28 +1,53 @@
 using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class InteractionManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public NPCInfo starterNPC;
+    public NPCInfo currentNPC;
+
+    public List<StoryObject> currentStoryObjects = new List<StoryObject>();
+
     void Start()
     {
-        
+        StoryStart(starterNPC);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Ray ray;
-	RaycastHit hit;
-	
-	void Update()
-	{
-		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if(Physics.Raycast(ray, out hit))
-		{
-			if(Input.GetMouseButtonDown(0))
-				print(hit.collider.name);
-		}
-	}
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                StoryObject checkedObject = hit.collider.GetComponent<StoryObject>();
+
+                if (checkedObject != null && currentStoryObjects.Contains(checkedObject))
+                {
+                    Debug.Log("Found " + checkedObject.ObjectName);
+                    currentStoryObjects.Remove(checkedObject);
+                }
+            }
+            else
+            {
+                Debug.Log("No object hit");
+            }
+        }
+
+        if (currentStoryObjects.Count == 0)
+        {
+            Debug.Log("You cleared!");
+        }
+    }
+
+    public void StoryStart(NPCInfo CurrentNPC)
+    {
+        currentNPC = CurrentNPC;
+
+        currentStoryObjects.Clear(); // IMPORTANT
+        currentStoryObjects.AddRange(currentNPC.LostPossessions);
     }
 }
