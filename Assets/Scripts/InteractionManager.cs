@@ -28,9 +28,15 @@ public class InteractionManager : MonoBehaviour
                 if (checkedObject!= null){Debug.Log("Checking " + checkedObject.ObjectName);}
                 if (checkedObject != null && currentStoryObjects.Contains(checkedObject))
                 {
+                   
+                    currentNPC.RightSound(checkedObject);
                     Debug.Log("Found " + checkedObject.ObjectName);
                     currentStoryObjects.Remove(checkedObject);
+                } else if (checkedObject != null)
+                {
+                   currentNPC.WrongSound(checkedObject); 
                 }
+                
             }
             else
             {

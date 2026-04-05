@@ -3633,7 +3633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1fd7b5d46ec4ac095cd16708a145ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInfo
-  Name: Lover
+  Name: Home
   interactionManager: {fileID: 1060533085}
   LostPossessions:
   - {fileID: 372810344}
@@ -3641,6 +3641,7 @@ MonoBehaviour:
   - {fileID: 894088378}
   - {fileID: 1913074267}
   Body: {fileID: 669099230}
+  Voice: {fileID: 0}
 --- !u!4 &441075489
 Transform:
   m_ObjectHideFlags: 0
@@ -5675,6 +5676,7 @@ MonoBehaviour:
   FabricMotions: {fileID: 421807261}
   BGMotion: {fileID: 218131842}
   gameManager: {fileID: 2079678148}
+  interactionManager: {fileID: 1060533085}
 --- !u!95 &669099231
 Animator:
   serializedVersion: 7
@@ -6126,7 +6128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691077167}
   m_Layer: 0
-  m_Name: AudioSOurces
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6149,6 +6151,7 @@ Transform:
   - {fileID: 1405611159}
   - {fileID: 1564714843}
   - {fileID: 2084583705}
+  - {fileID: 1149227849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697521768
@@ -6990,6 +6993,79 @@ Transform:
   - {fileID: 62895266}
   m_Father: {fileID: 304362592}
   m_LocalEulerAnglesHint: {x: 64.34848, y: -63.15826, z: -65.53612}
+--- !u!1001 &789788240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 691077167}
+    m_Modifications:
+    - target: {fileID: 1361391322592991194, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: sfxSource
+      value: 
+      objectReference: {fileID: 1926670002}
+    - target: {fileID: 1361391322592991194, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1564714844}
+    - target: {fileID: 1361391322592991194, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: voiceSource
+      value: 
+      objectReference: {fileID: 1405611160}
+    - target: {fileID: 1361391322592991194, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: ambienceSource
+      value: 
+      objectReference: {fileID: 2084583706}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000060081482
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28917003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0036087036
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124439407581506229, guid: 479f0688b937e164880d6de61421735f, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 479f0688b937e164880d6de61421735f, type: 3}
 --- !u!1 &790527711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,6 +7200,7 @@ MonoBehaviour:
   - {fileID: 1996187330}
   - {fileID: 538122101}
   Body: {fileID: 964157149}
+  Voice: {fileID: 0}
 --- !u!4 &803783341
 Transform:
   m_ObjectHideFlags: 0
@@ -7653,6 +7730,7 @@ MonoBehaviour:
   FabricMotions: {fileID: 1580359034}
   BGMotion: {fileID: 218131842}
   gameManager: {fileID: 2079678148}
+  interactionManager: {fileID: 1060533085}
 --- !u!95 &886632184
 Animator:
   serializedVersion: 7
@@ -8873,6 +8951,7 @@ MonoBehaviour:
   FabricMotions: {fileID: 883390614}
   BGMotion: {fileID: 218131842}
   gameManager: {fileID: 2079678148}
+  interactionManager: {fileID: 1060533085}
 --- !u!95 &964157150
 Animator:
   serializedVersion: 7
@@ -10659,6 +10738,22 @@ Transform:
   - {fileID: 471827675}
   m_Father: {fileID: 1152723676}
   m_LocalEulerAnglesHint: {x: -70.384796, y: 0.13787498, z: -0.13165216}
+--- !u!4 &1149227849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2669510863259362545, guid: 479f0688b937e164880d6de61421735f, type: 3}
+  m_PrefabInstance: {fileID: 789788240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1149227850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1361391322592991194, guid: 479f0688b937e164880d6de61421735f, type: 3}
+  m_PrefabInstance: {fileID: 789788240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2cfc5919f762b4ba95c6f0eb1e6590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!1 &1152723675
 GameObject:
   m_ObjectHideFlags: 0
@@ -12769,14 +12864,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1fd7b5d46ec4ac095cd16708a145ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInfo
-  Name: Lover
+  Name: Love
   interactionManager: {fileID: 1060533085}
   LostPossessions:
   - {fileID: 1276830072}
+  - {fileID: 384442779}
   - {fileID: 1070359074}
   - {fileID: 1626734624}
-  - {fileID: 384442779}
   Body: {fileID: 886632183}
+  Voice: {fileID: 1149227850}
 --- !u!4 &1389140132
 Transform:
   m_ObjectHideFlags: 0
@@ -13003,7 +13099,7 @@ AudioSource:
   m_GameObject: {fileID: 1405611158}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 395467797018065927, guid: b15674f581639eb448ebdead8803a2f8, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -14663,7 +14759,7 @@ AudioSource:
   m_GameObject: {fileID: 1564714842}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7292112262842902500, guid: b15674f581639eb448ebdead8803a2f8, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -18372,7 +18468,7 @@ AudioSource:
   m_GameObject: {fileID: 1926670000}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4257166823331905, guid: b15674f581639eb448ebdead8803a2f8, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -19619,7 +19715,7 @@ AudioSource:
   m_GameObject: {fileID: 2084583704}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5098640598116218729, guid: b15674f581639eb448ebdead8803a2f8, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

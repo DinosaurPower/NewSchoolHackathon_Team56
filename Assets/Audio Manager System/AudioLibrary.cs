@@ -6,7 +6,8 @@ public enum DialogueLineType
 {
     NeedMoreEvidence,
     No,
-    SceneEnd
+    SceneEnd,
+    SceneStart
 }
 
 public enum SfxId
@@ -40,10 +41,12 @@ public class CharacterDialogue
     public AudioClip needMoreEvidence;
     public AudioClip no;
     public AudioClip sceneEnd;
+    public AudioClip sceneStart;
 
     [Header("Object dialogue")]
     [Tooltip("Index in this array = object index in your game (e.g. inspectable 0, 1, 2…).")]
     public AudioClip[] dialogLinesByObjectIndex = Array.Empty<AudioClip>();
+     public AudioClip footsteps;
 }
 
 /// <summary>
@@ -110,6 +113,7 @@ public class AudioLibrary : ScriptableObject
             DialogueLineType.NeedMoreEvidence => entry.needMoreEvidence,
             DialogueLineType.No => entry.no,
             DialogueLineType.SceneEnd => entry.sceneEnd,
+             DialogueLineType.SceneStart => entry.sceneStart,
             _ => null
         };
     }

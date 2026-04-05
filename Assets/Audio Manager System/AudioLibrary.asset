@@ -13,36 +13,46 @@ MonoBehaviour:
   m_Name: AudioLibrary
   m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
   characters:
+  - characterId: Love
+    needMoreEvidence: {fileID: 8300000, guid: 2781552cc450a46c1ad13b270f60e10d, type: 3}
+    no: {fileID: 8300000, guid: 5d2d1f146012b420daf9b4bfec247b0d, type: 3}
+    sceneEnd: {fileID: 8300000, guid: a78ad8d23f6c84bacb4ed918d523bfdd, type: 3}
+    sceneStart: {fileID: 8300000, guid: 4ecfa1f26d7b84f499a0e8ce34b06496, type: 3}
+    dialogLinesByObjectIndex:
+    - {fileID: 8300000, guid: a974ebf7407b4469883bece6a2277970, type: 3}
+    - {fileID: 8300000, guid: 098a62b6a679b4b29af9ebad44384989, type: 3}
+    - {fileID: 8300000, guid: 75ba53b0c120c4ad1b4d144b2a3e9fa7, type: 3}
+    - {fileID: 8300000, guid: 849e7c8bbdfb54684a96f4f502b68665, type: 3}
+    footsteps: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
   - characterId: 
     needMoreEvidence: {fileID: 0}
     no: {fileID: 0}
     sceneEnd: {fileID: 0}
+    sceneStart: {fileID: 0}
     dialogLinesByObjectIndex: []
+    footsteps: {fileID: 0}
   - characterId: 
     needMoreEvidence: {fileID: 0}
     no: {fileID: 0}
     sceneEnd: {fileID: 0}
+    sceneStart: {fileID: 0}
     dialogLinesByObjectIndex: []
-  - characterId: 
-    needMoreEvidence: {fileID: 0}
-    no: {fileID: 0}
-    sceneEnd: {fileID: 0}
-    dialogLinesByObjectIndex: []
+    footsteps: {fileID: 0}
   bgmTracks:
   - trackName: 
     clip: {fileID: 0}
   - trackName: 
     clip: {fileID: 0}
   sfx:
-    doorOpen: {fileID: 0}
-    doorClose: {fileID: 0}
-    footstep1: {fileID: 0}
-    footstep2: {fileID: 0}
-    footstep3: {fileID: 0}
-    sittingDown: {fileID: 0}
+    doorOpen: {fileID: 8300000, guid: ebc70097bd92441a8862c3a1fe0b4078, type: 3}
+    doorClose: {fileID: 8300000, guid: 0f59f307f1dbb471295192e62fc97868, type: 3}
+    footstep1: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
+    footstep2: {fileID: 8300000, guid: e0526e46a594b42bd8f70158c2cdc133, type: 3}
+    footstep3: {fileID: 8300000, guid: 5103d091edaaf4eb3912e2bf4f5f13db, type: 3}
+    sittingDown: {fileID: 8300000, guid: 9fe86d58652814eee8e9f99bc4ea561f, type: 3}
     click: {fileID: 0}
-    trainStop: {fileID: 0}
-    trainGo: {fileID: 0}
+    trainStop: {fileID: 8300000, guid: b500ac1f29ff4432faeed92c3bd942e9, type: 3}
+    trainGo: {fileID: 8300000, guid: 595a92c3dfa684397861780ab0cb0245, type: 3}
   ambience:
     trainTunnelAmbience: {fileID: 0}
     trainCarAmbience: {fileID: 0}

@@ -7,6 +7,7 @@ public class AnimationManager : MonoBehaviour
     public Animator FabricMotions;
     public Animator BGMotion;
     public GameManager gameManager;
+   public InteractionManager interactionManager;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +18,10 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatout")||FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatin")) {
+    Debug.Log("Walking");
+    interactionManager.currentNPC.Footsteps();
+}
     }
     public void TravelIn()
     {
@@ -26,6 +30,7 @@ public class AnimationManager : MonoBehaviour
     public void SitDown()
     {
         FabricMotions.SetTrigger("Sit");
+        interactionManager.currentNPC.SitDown();
     }
     public void StandUp()
     {
@@ -47,5 +52,15 @@ public class AnimationManager : MonoBehaviour
     void Resume() {
         BGMotion.speed = 1f; // Resumes at normal speed
     }
+
+     public void playIntroLine()
+    {
+        interactionManager.currentNPC.IntroSound();
+    }
+    public void playOutroLine()
+    {
+        interactionManager.currentNPC.OutroSound();
+    }
+
 
 }
