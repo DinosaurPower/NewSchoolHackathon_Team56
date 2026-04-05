@@ -9,11 +9,11 @@ public class InteractionManager : MonoBehaviour
 
     [Tooltip("Layers the interaction ray hits. Exclude Plane/backdrop so rays reach props in front.")]
     [SerializeField] LayerMask interactionRaycastLayers = -1;
-
+    public GameObject Menu;
     public NPCInfo starterNPC;
     public NPCInfo currentNPC;
     public AnimationManager currentAnimationManager;
-
+    public GameObject NPCSprite;
     public List<StoryObject> currentStoryObjects = new List<StoryObject>();
 
     StoryObject _lastHovered;
@@ -21,7 +21,7 @@ public class InteractionManager : MonoBehaviour
 
     void Start()
     {
-        StoryStart(starterNPC);
+       NPCSprite.GetComponent<Animator>();
     }
 
     void Update()
@@ -91,5 +91,14 @@ public class InteractionManager : MonoBehaviour
         currentStoryObjects.Clear();
         currentStoryObjects.AddRange(currentNPC.LostPossessions);
         currentNPC.Body.MovingInAndOut.SetTrigger("WalkIn");
+    }
+
+    public void StartGame()
+    {
+        Menu.SetActive(false);
+        StoryStart(starterNPC);
+        NPCSprite.SetActive(true);
+        
+        
     }
 }

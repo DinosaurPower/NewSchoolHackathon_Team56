@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     //public AnimationManager animationManager;
     public NPCInfo[] NPCInfos;
     public int NpcCount = 0;
+    public GameObject Menu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
         NpcCount++;
         }
     }
-
+    public void StartGame()
+    {
+        
+    }
    
 }
