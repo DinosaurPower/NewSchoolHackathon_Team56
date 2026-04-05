@@ -28,4 +28,8 @@ public class AnimationManager : MonoBehaviour
     {
         FabricMotions.SetTrigger("Stand");
     }
+    public void Leave()
+    {
+        MovingInAndOut.SetTrigger("WalkOut");
+    }
 }
