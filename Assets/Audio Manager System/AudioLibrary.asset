@@ -125,6 +125,9 @@ MonoBehaviour:
     trainGo:
       clip: {fileID: 8300000, guid: 595a92c3dfa684397861780ab0cb0245, type: 3}
       volume: 1
+    lastStop:
+      clip: {fileID: 8300000, guid: 19a5ad6f5970745b8aefdd7bc8c861f6, type: 3}
+      volume: 1
   ambience:
     trainTunnelAmbience:
       clip: {fileID: 0}
