@@ -92,7 +92,7 @@ MonoBehaviour:
   - trackName: Title Music
     track:
       clip: {fileID: 8300000, guid: 8493dbbb50df84cfb95ae10ee82d21f1, type: 3}
-      volume: 0.9
+      volume: 0.1
   - trackName: GamePlay
     track:
       clip: {fileID: 8300000, guid: ac39ed057f8714aa2aa6b2390e291eb4, type: 3}
@@ -106,13 +106,13 @@ MonoBehaviour:
       volume: 1
     footstep1:
       clip: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
-      volume: 1
+      volume: 0
     footstep2:
       clip: {fileID: 8300000, guid: e0526e46a594b42bd8f70158c2cdc133, type: 3}
-      volume: 1
+      volume: 0
     footstep3:
       clip: {fileID: 8300000, guid: 5103d091edaaf4eb3912e2bf4f5f13db, type: 3}
-      volume: 1
+      volume: 0
     sittingDown:
       clip: {fileID: 8300000, guid: d32d93c067f6a4db98eacc707327919a, type: 3}
       volume: 1
