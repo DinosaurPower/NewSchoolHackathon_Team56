@@ -15,13 +15,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.98958486, y: 0.98709804, z: 1, w: -0.03770028}
+    m_Value: {x: 0.98958486, y: 0.98709804, z: 1, w: -0.019685116}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.131951}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.045214366}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.06597551}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.07874017}
 --- !u!114 &-5865390290138973601
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Bloom
-  active: 1
+  active: 0
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
@@ -384,4 +384,4 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 45
+    m_Value: 58
