@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// Keeps the light’s world position as you placed it; aims the spotlight along corrected mouse rays
-/// (<see cref="CursorCorrection"/>) so the beam endpoint matches the cursor on a play surface plane.
+/// (<see cref="CursorCorrection"/>). Aim point: raycast against the configured plane layer mask, then optional
+/// transform-based plane, then distance fallback.
 /// </summary>
 public class FlashLight : MonoBehaviour
 {
@@ -16,10 +17,13 @@ public class FlashLight : MonoBehaviour
 
     [SerializeField] Camera targetCamera;
 
-    [Tooltip("Put this on the surface you point at (e.g. wall). Position on the plane; forward should point from the surface toward the camera.")]
+    [Tooltip("Raycast the mouse ray against these layers only (e.g. your Plane layer with a collider). Interaction can ignore this layer; the flashlight still hits it here.")]
+    [SerializeField] LayerMask aimPlaneLayers;
+
+    [Tooltip("Optional fallback: infinite plane through this transform if nothing on Aim Plane Layers is hit.")]
     [SerializeField] Transform aimSurface;
 
-    [Tooltip("Max ray length when intersecting the aim plane.")]
+    [Tooltip("Max ray length for plane raycast / math plane.")]
     [SerializeField] float rayMaxDistance = 500f;
 
     [Tooltip("If the plane is missed, aim this far along the mouse ray from the camera.")]
@@ -97,6 +101,10 @@ public class FlashLight : MonoBehaviour
 
     Vector3 GetAimWorldPoint(Ray ray)
     {
+        if (aimPlaneLayers.value != 0 &&
+            Physics.Raycast(ray, out RaycastHit hit, rayMaxDistance, aimPlaneLayers, QueryTriggerInteraction.Ignore))
+            return hit.point;
+
         if (aimSurface != null)
         {
             var plane = new Plane(aimSurface.forward, aimSurface.position);

@@ -7,6 +7,9 @@ public class InteractionManager : MonoBehaviour
     /// <summary>Same cursor ray used for hover/click this frame (corrected screen → <see cref="Camera.main"/>).</summary>
     public Ray CurrentCursorRay { get; private set; }
 
+    [Tooltip("Layers the interaction ray hits. Exclude Plane/backdrop so rays reach props in front.")]
+    [SerializeField] LayerMask interactionRaycastLayers = -1;
+
     public NPCInfo starterNPC;
     public NPCInfo currentNPC;
     public AnimationManager currentAnimationManager;
@@ -41,7 +44,7 @@ public class InteractionManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
         CurrentCursorRay = ray;
         StoryObject hitStory = null;
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, interactionRaycastLayers, QueryTriggerInteraction.UseGlobal))
         {
             hitStory = hit.collider.GetComponent<StoryObject>();
             if (hitStory != null)
