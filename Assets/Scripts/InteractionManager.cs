@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class InteractionManager : MonoBehaviour
 {
+    /// <summary>Same cursor ray used for hover/click this frame (corrected screen → <see cref="Camera.main"/>).</summary>
+    public Ray CurrentCursorRay { get; private set; }
+
     public NPCInfo starterNPC;
     public NPCInfo currentNPC;
     public AnimationManager currentAnimationManager;
@@ -36,6 +39,7 @@ public class InteractionManager : MonoBehaviour
         if (CursorCorrection.Instance != null)
             screenPos = CursorCorrection.Instance.Correct(screenPos);
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        CurrentCursorRay = ray;
         StoryObject hitStory = null;
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
