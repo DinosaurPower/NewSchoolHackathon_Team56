@@ -5,6 +5,8 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator MovingInAndOut;
     public Animator FabricMotions;
+    public GameManager gameManager;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,5 +33,9 @@ public class AnimationManager : MonoBehaviour
     public void Leave()
     {
         MovingInAndOut.SetTrigger("WalkOut");
+    }
+    public void NextStage()
+    {
+        gameManager.CallNextNPC();
     }
 }

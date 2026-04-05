@@ -50,5 +50,6 @@ public class InteractionManager : MonoBehaviour
         currentNPC = CurrentNPC;
         currentStoryObjects.Clear(); // IMPORTANT
         currentStoryObjects.AddRange(currentNPC.LostPossessions);
+        currentNPC.Body.MovingInAndOut.SetTrigger("WalkIn");
     }
 }

@@ -10,6 +10,7 @@ public class NPCInfo : MonoBehaviour
   public void StartLoop()
     {
         interactionManager.StoryStart(this);
+        
     }
 
 }
