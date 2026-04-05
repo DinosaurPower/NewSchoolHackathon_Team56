@@ -89,6 +89,8 @@ public class InteractionManager : MonoBehaviour
 
     public void StoryStart(NPCInfo CurrentNPC)
     {
+        if (currentNPC != null)
+            currentNPC.StopFootsteps();
         currentNPC = CurrentNPC;
         currentStoryObjects.Clear();
         currentStoryObjects.AddRange(currentNPC.LostPossessions);

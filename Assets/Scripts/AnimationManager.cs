@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class AnimationManager : MonoBehaviour
 {
@@ -8,7 +7,10 @@ public class AnimationManager : MonoBehaviour
     public Animator BGMotion;
     public GameManager gameManager;
    public InteractionManager interactionManager;
-   
+
+    bool _footstepsWerePlaying;
+    NPCInfo _trackedNpc;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,10 +20,24 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatout")||FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatin")) {
-    //Debug.Log("Walking");
-    interactionManager.currentNPC.Footsteps();
-}
+        if (interactionManager?.currentNPC == null || FabricMotions == null)
+            return;
+
+        if (interactionManager.currentNPC != _trackedNpc)
+        {
+            _trackedNpc = interactionManager.currentNPC;
+            _footstepsWerePlaying = false;
+        }
+
+        var info = FabricMotions.GetCurrentAnimatorStateInfo(0);
+        bool walking = info.IsName("floatout") || info.IsName("floatin");
+
+        if (walking && !_footstepsWerePlaying)
+            interactionManager.currentNPC.Footsteps();
+        else if (!walking && _footstepsWerePlaying)
+            interactionManager.currentNPC.StopFootsteps();
+
+        _footstepsWerePlaying = walking;
     }
     public void TravelIn()
     {
