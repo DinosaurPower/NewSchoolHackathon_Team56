@@ -2788,6 +2788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: InfoScreen
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &372810345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3290,6 +3292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: 
+  IsHovered: 0
+  IsClicked: 0
 --- !u!1 &385029671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,7 +3645,7 @@ MonoBehaviour:
   - {fileID: 894088378}
   - {fileID: 1913074267}
   Body: {fileID: 669099230}
-  Voice: {fileID: 0}
+  Voice: {fileID: 1149227850}
 --- !u!4 &441075489
 Transform:
   m_ObjectHideFlags: 0
@@ -4619,6 +4623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Window
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &538122102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6774,6 +6780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Ai Ad
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &776010304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7200,7 +7208,7 @@ MonoBehaviour:
   - {fileID: 1996187330}
   - {fileID: 538122101}
   Body: {fileID: 964157149}
-  Voice: {fileID: 0}
+  Voice: {fileID: 1149227850}
 --- !u!4 &803783341
 Transform:
   m_ObjectHideFlags: 0
@@ -7836,6 +7844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: FamilyAd
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &894088379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9445,6 +9455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Real Estate Ad
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1014472924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9793,6 +9805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Graffiti
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1045087854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9984,6 +9998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: LoversAd
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1070359075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11947,6 +11963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: 2028
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1276830073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15177,6 +15195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: 
+  IsHovered: 0
+  IsClicked: 0
 --- !u!1 &1589210937
 GameObject:
   m_ObjectHideFlags: 0
@@ -15373,6 +15393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Map
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1598289439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15812,6 +15834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Met Ad
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1626734625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17476,6 +17500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: DesertAd
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1823792716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18286,6 +18312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Dent
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1913074268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18966,6 +18994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryObject
   ObjectName: Protest Poster
+  IsHovered: 0
+  IsClicked: 0
 --- !u!65 &1996187331
 BoxCollider:
   m_ObjectHideFlags: 0

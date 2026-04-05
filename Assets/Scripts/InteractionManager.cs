@@ -56,12 +56,12 @@ public class InteractionManager : MonoBehaviour
                 if (currentStoryObjects.Contains(hitStory))
                 {
                    
-                    currentNPC.RightSound(checkedObject);
+                    currentNPC.RightSound(hitStory);
                     Debug.Log("Found " + hitStory.ObjectName);
                     currentStoryObjects.Remove(hitStory);
-                } else if (checkedObject != null)
+                } else if (hitStory != null)
                 {
-                   currentNPC.WrongSound(checkedObject); 
+                   currentNPC.WrongSound(hitStory); 
                 }
                 
             }
