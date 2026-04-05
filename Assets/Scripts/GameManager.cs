@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     }
     public void CallNextNPC()
     {
+        if (NpcCount <= NPCInfos.Length-1){
         NPCInfos[NpcCount].StartLoop();
         NpcCount++;
+        }
     }
 }
