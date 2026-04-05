@@ -10270,13 +10270,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionManager
   interactionRaycastLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 23
   Menu: {fileID: 1039638035}
   starterNPC: {fileID: 1389140131}
   currentNPC: {fileID: 1389140131}
   currentAnimationManager: {fileID: 0}
   NPCSprite: {fileID: 886632182}
   currentStoryObjects: []
+  GameActive: 0
 --- !u!1 &1069986363
 GameObject:
   m_ObjectHideFlags: 0
