@@ -20,7 +20,10 @@ public class InteractionManager : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Vector2 screenPos = Mouse.current.position.ReadValue();
+            if (CursorCorrection.Instance != null)
+                screenPos = CursorCorrection.Instance.Correct(screenPos);
+            Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
