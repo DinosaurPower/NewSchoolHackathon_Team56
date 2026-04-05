@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject Menu;
     public GameObject Outro;
      public AudioManager audioManager;
+     public Animator lastNPC;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         } else if (NpcCount == NPCInfos.Length)
         {
             Debug.Log("goodbye!");
-
+            lastNPC.speed = 0;
             audioManager.PlaySfx(SfxId.LastStop, 1);
             Outro.SetActive(true);
         }

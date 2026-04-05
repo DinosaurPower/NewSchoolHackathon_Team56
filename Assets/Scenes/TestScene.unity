@@ -20761,6 +20761,7 @@ MonoBehaviour:
   Menu: {fileID: 0}
   Outro: {fileID: 2050647427}
   audioManager: {fileID: 1149227850}
+  lastNPC: {fileID: 669099231}
 --- !u!4 &2079678149
 Transform:
   m_ObjectHideFlags: 0
