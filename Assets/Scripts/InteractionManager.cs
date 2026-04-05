@@ -18,14 +18,15 @@ public class InteractionManager : MonoBehaviour
 
     StoryObject _lastHovered;
     StoryObject _lastClicked;
-
+    public bool GameActive = false;
     void Start()
     {
-       NPCSprite.GetComponent<Animator>();
+       NPCSprite.GetComponent<Animator>().speed = 0;;
     }
 
     void Update()
     {
+        if (GameActive == true){
         if (_lastClicked != null)
         {
             _lastClicked.IsClicked = false;
@@ -83,6 +84,7 @@ public class InteractionManager : MonoBehaviour
             currentNPC.Body.Leave();
             Debug.Log("You cleared!");
         }
+        }
     }
 
     public void StoryStart(NPCInfo CurrentNPC)
@@ -97,7 +99,8 @@ public class InteractionManager : MonoBehaviour
     {
         Menu.SetActive(false);
         StoryStart(starterNPC);
-        NPCSprite.SetActive(true);
+        NPCSprite.GetComponent<Animator>().speed = 1;
+        GameActive = true;
         
         
     }
