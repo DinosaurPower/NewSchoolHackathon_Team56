@@ -14,53 +14,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
   characters:
   - characterId: Love
-    needMoreEvidence: {fileID: 8300000, guid: 2781552cc450a46c1ad13b270f60e10d, type: 3}
-    no: {fileID: 8300000, guid: 5d2d1f146012b420daf9b4bfec247b0d, type: 3}
-    sceneEnd: {fileID: 8300000, guid: a78ad8d23f6c84bacb4ed918d523bfdd, type: 3}
-    sceneStart: {fileID: 8300000, guid: 4ecfa1f26d7b84f499a0e8ce34b06496, type: 3}
+    needMoreEvidence:
+      clip: {fileID: 8300000, guid: 2781552cc450a46c1ad13b270f60e10d, type: 3}
+      volume: 1
+    no:
+      clip: {fileID: 8300000, guid: 5d2d1f146012b420daf9b4bfec247b0d, type: 3}
+      volume: 1
+    sceneEnd:
+      clip: {fileID: 8300000, guid: a78ad8d23f6c84bacb4ed918d523bfdd, type: 3}
+      volume: 1
+    sceneStart:
+      clip: {fileID: 8300000, guid: 4ecfa1f26d7b84f499a0e8ce34b06496, type: 3}
+      volume: 1
     dialogLinesByObjectIndex:
-    - {fileID: 8300000, guid: a974ebf7407b4469883bece6a2277970, type: 3}
-    - {fileID: 8300000, guid: 098a62b6a679b4b29af9ebad44384989, type: 3}
-    - {fileID: 8300000, guid: 75ba53b0c120c4ad1b4d144b2a3e9fa7, type: 3}
-    - {fileID: 8300000, guid: 849e7c8bbdfb54684a96f4f502b68665, type: 3}
-    footsteps: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
+    - clip: {fileID: 8300000, guid: a974ebf7407b4469883bece6a2277970, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 098a62b6a679b4b29af9ebad44384989, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 75ba53b0c120c4ad1b4d144b2a3e9fa7, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 849e7c8bbdfb54684a96f4f502b68665, type: 3}
+      volume: 1
+    footsteps:
+      clip: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
+      volume: 1
   - characterId: Loss
-    needMoreEvidence: {fileID: 8300000, guid: a93fc0e7f254e4348a17e27f443bfd72, type: 3}
-    no: {fileID: 8300000, guid: c72214f75bd804b339ae62f7a0d4c38a, type: 3}
-    sceneEnd: {fileID: 8300000, guid: 4cc1fd3ed658b409999da07338ea4def, type: 3}
-    sceneStart: {fileID: 8300000, guid: 508dbbd576337478ca6ba7d145cb3ccf, type: 3}
+    needMoreEvidence:
+      clip: {fileID: 8300000, guid: a93fc0e7f254e4348a17e27f443bfd72, type: 3}
+      volume: 1
+    no:
+      clip: {fileID: 8300000, guid: c72214f75bd804b339ae62f7a0d4c38a, type: 3}
+      volume: 1
+    sceneEnd:
+      clip: {fileID: 8300000, guid: 4cc1fd3ed658b409999da07338ea4def, type: 3}
+      volume: 1
+    sceneStart:
+      clip: {fileID: 8300000, guid: 508dbbd576337478ca6ba7d145cb3ccf, type: 3}
+      volume: 1
     dialogLinesByObjectIndex:
-    - {fileID: 8300000, guid: b2ac90fe82e8242428125fce5a1ae61e, type: 3}
-    - {fileID: 8300000, guid: 34c325e1c6ff14635ac9f3ed05f0efb8, type: 3}
-    - {fileID: 8300000, guid: 4808b669089354c7199474a0902461a1, type: 3}
-    - {fileID: 8300000, guid: 170172e8c596e41e6a60598bde27e321, type: 3}
-    footsteps: {fileID: 0}
+    - clip: {fileID: 8300000, guid: b2ac90fe82e8242428125fce5a1ae61e, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 34c325e1c6ff14635ac9f3ed05f0efb8, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 4808b669089354c7199474a0902461a1, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 170172e8c596e41e6a60598bde27e321, type: 3}
+      volume: 1
+    footsteps:
+      clip: {fileID: 0}
+      volume: 1
   - characterId: Home
-    needMoreEvidence: {fileID: 8300000, guid: 772f952428cfa4f6da585a55ca7232e8, type: 3}
-    no: {fileID: 8300000, guid: aebf2d8daa5ae49f5bb3e728fc021712, type: 3}
-    sceneEnd: {fileID: 8300000, guid: 81613f0b6598641b3aa710e3a6a8335e, type: 3}
-    sceneStart: {fileID: 8300000, guid: e2cb5f49acacb4fde90df97163670211, type: 3}
+    needMoreEvidence:
+      clip: {fileID: 8300000, guid: 772f952428cfa4f6da585a55ca7232e8, type: 3}
+      volume: 1
+    no:
+      clip: {fileID: 8300000, guid: aebf2d8daa5ae49f5bb3e728fc021712, type: 3}
+      volume: 1
+    sceneEnd:
+      clip: {fileID: 8300000, guid: 81613f0b6598641b3aa710e3a6a8335e, type: 3}
+      volume: 1
+    sceneStart:
+      clip: {fileID: 8300000, guid: e2cb5f49acacb4fde90df97163670211, type: 3}
+      volume: 1
     dialogLinesByObjectIndex:
-    - {fileID: 8300000, guid: 192d315d01233422d853a404e9186955, type: 3}
-    - {fileID: 8300000, guid: 3b96b5ee6135847a7b88ae426f3fc7bc, type: 3}
-    - {fileID: 8300000, guid: f15d668b418844089b23a3b23dabac02, type: 3}
-    - {fileID: 8300000, guid: ad3d0f894e6c447c182e174d2778b9e9, type: 3}
-    footsteps: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 192d315d01233422d853a404e9186955, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 3b96b5ee6135847a7b88ae426f3fc7bc, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: f15d668b418844089b23a3b23dabac02, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: ad3d0f894e6c447c182e174d2778b9e9, type: 3}
+      volume: 1
+    footsteps:
+      clip: {fileID: 0}
+      volume: 1
   bgmTracks:
   - trackName: 
-    clip: {fileID: 0}
+    track:
+      clip: {fileID: 0}
+      volume: 1
   - trackName: 
-    clip: {fileID: 0}
+    track:
+      clip: {fileID: 0}
+      volume: 1
   sfx:
-    doorOpen: {fileID: 8300000, guid: ebc70097bd92441a8862c3a1fe0b4078, type: 3}
-    doorClose: {fileID: 8300000, guid: 0f59f307f1dbb471295192e62fc97868, type: 3}
-    footstep1: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
-    footstep2: {fileID: 8300000, guid: e0526e46a594b42bd8f70158c2cdc133, type: 3}
-    footstep3: {fileID: 8300000, guid: 5103d091edaaf4eb3912e2bf4f5f13db, type: 3}
-    sittingDown: {fileID: 8300000, guid: d32d93c067f6a4db98eacc707327919a, type: 3}
-    click: {fileID: 0}
-    trainStop: {fileID: 8300000, guid: b500ac1f29ff4432faeed92c3bd942e9, type: 3}
-    trainGo: {fileID: 8300000, guid: 595a92c3dfa684397861780ab0cb0245, type: 3}
+    doorOpen:
+      clip: {fileID: 8300000, guid: ebc70097bd92441a8862c3a1fe0b4078, type: 3}
+      volume: 1
+    doorClose:
+      clip: {fileID: 8300000, guid: 0f59f307f1dbb471295192e62fc97868, type: 3}
+      volume: 1
+    footstep1:
+      clip: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
+      volume: 1
+    footstep2:
+      clip: {fileID: 8300000, guid: e0526e46a594b42bd8f70158c2cdc133, type: 3}
+      volume: 1
+    footstep3:
+      clip: {fileID: 8300000, guid: 5103d091edaaf4eb3912e2bf4f5f13db, type: 3}
+      volume: 1
+    sittingDown:
+      clip: {fileID: 8300000, guid: d32d93c067f6a4db98eacc707327919a, type: 3}
+      volume: 1
+    click:
+      clip: {fileID: 0}
+      volume: 1
+    trainStop:
+      clip: {fileID: 8300000, guid: b500ac1f29ff4432faeed92c3bd942e9, type: 3}
+      volume: 1
+    trainGo:
+      clip: {fileID: 8300000, guid: 595a92c3dfa684397861780ab0cb0245, type: 3}
+      volume: 1
   ambience:
-    trainTunnelAmbience: {fileID: 0}
-    trainCarAmbience: {fileID: 0}
+    trainTunnelAmbience:
+      clip: {fileID: 0}
+      volume: 1
+    trainCarAmbience:
+      clip: {fileID: 0}
+      volume: 1

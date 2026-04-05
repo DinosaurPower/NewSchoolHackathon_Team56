@@ -30,23 +30,36 @@ public enum AmbienceId
 }
 
 /// <summary>
+/// Clip plus per-asset volume (Inspector slider). Multiplied with optional runtime scales in AudioManager.
+/// </summary>
+[Serializable]
+public class SoundEntry
+{
+    public AudioClip clip;
+    [Range(0f, 1f)]
+    [Tooltip("Per-clip level in the library (1 = full).")]
+    public float volume = 1f;
+}
+
+/// <summary>
 /// One character’s dialogue clips. Add entries in the Inspector array; use CharacterId from other scripts.
 /// </summary>
 [Serializable]
 public class CharacterDialogue
 {
-    [Tooltip("Used by code, e.g. GetDialogueClip(\"Detective\", ...)")]
+    [Tooltip("Used by code, e.g. GetDialogue(\"Detective\", ...)")]
     public string characterId = "Default";
 
-    public AudioClip needMoreEvidence;
-    public AudioClip no;
-    public AudioClip sceneEnd;
-    public AudioClip sceneStart;
+    public SoundEntry needMoreEvidence = new SoundEntry();
+    public SoundEntry no = new SoundEntry();
+    public SoundEntry sceneEnd = new SoundEntry();
+    public SoundEntry sceneStart = new SoundEntry();
 
     [Header("Object dialogue")]
     [Tooltip("Index in this array = object index in your game (e.g. inspectable 0, 1, 2…).")]
-    public AudioClip[] dialogLinesByObjectIndex = Array.Empty<AudioClip>();
-     public AudioClip footsteps;
+    public SoundEntry[] dialogLinesByObjectIndex = Array.Empty<SoundEntry>();
+
+    public SoundEntry footsteps = new SoundEntry();
 }
 
 /// <summary>
@@ -56,7 +69,7 @@ public class CharacterDialogue
 public class BgmTrack
 {
     public string trackName = "Track";
-    public AudioClip clip;
+    public SoundEntry track = new SoundEntry();
 }
 
 /// <summary>
@@ -65,15 +78,15 @@ public class BgmTrack
 [Serializable]
 public class SfxClips
 {
-    public AudioClip doorOpen;
-    public AudioClip doorClose;
-    public AudioClip footstep1;
-    public AudioClip footstep2;
-    public AudioClip footstep3;
-    public AudioClip sittingDown;
-    public AudioClip click;
-    public AudioClip trainStop;
-    public AudioClip trainGo;
+    public SoundEntry doorOpen = new SoundEntry();
+    public SoundEntry doorClose = new SoundEntry();
+    public SoundEntry footstep1 = new SoundEntry();
+    public SoundEntry footstep2 = new SoundEntry();
+    public SoundEntry footstep3 = new SoundEntry();
+    public SoundEntry sittingDown = new SoundEntry();
+    public SoundEntry click = new SoundEntry();
+    public SoundEntry trainStop = new SoundEntry();
+    public SoundEntry trainGo = new SoundEntry();
 }
 
 /// <summary>
@@ -82,8 +95,8 @@ public class SfxClips
 [Serializable]
 public class AmbienceClips
 {
-    public AudioClip trainTunnelAmbience;
-    public AudioClip trainCarAmbience;
+    public SoundEntry trainTunnelAmbience = new SoundEntry();
+    public SoundEntry trainCarAmbience = new SoundEntry();
 }
 
 [CreateAssetMenu(fileName = "AudioLibrary", menuName = "Audio/Audio Library")]
@@ -102,31 +115,31 @@ public class AudioLibrary : ScriptableObject
     [Header("Ambience")]
     public AmbienceClips ambience = new AmbienceClips();
 
-    public AudioClip GetDialogueClip(string characterId, DialogueLineType line)
+    public SoundEntry GetDialogue(string characterId, DialogueLineType line)
     {
         var entry = FindCharacter(characterId);
         if (entry == null)
-            return null;
+            return new SoundEntry();
 
         return line switch
         {
-            DialogueLineType.NeedMoreEvidence => entry.needMoreEvidence,
-            DialogueLineType.No => entry.no,
-            DialogueLineType.SceneEnd => entry.sceneEnd,
-             DialogueLineType.SceneStart => entry.sceneStart,
-            _ => null
+            DialogueLineType.NeedMoreEvidence => entry.needMoreEvidence ?? new SoundEntry(),
+            DialogueLineType.No => entry.no ?? new SoundEntry(),
+            DialogueLineType.SceneEnd => entry.sceneEnd ?? new SoundEntry(),
+            DialogueLineType.SceneStart => entry.sceneStart ?? new SoundEntry(),
+            _ => new SoundEntry()
         };
     }
 
     /// <summary>Line when this character comments on the object at <paramref name="objectIndex"/>.</summary>
-    public AudioClip GetObjectDialogueClip(string characterId, int objectIndex)
+    public SoundEntry GetObjectDialogue(string characterId, int objectIndex)
     {
         var entry = FindCharacter(characterId);
         if (entry == null || entry.dialogLinesByObjectIndex == null)
-            return null;
+            return new SoundEntry();
         if (objectIndex < 0 || objectIndex >= entry.dialogLinesByObjectIndex.Length)
-            return null;
-        return entry.dialogLinesByObjectIndex[objectIndex];
+            return new SoundEntry();
+        return entry.dialogLinesByObjectIndex[objectIndex] ?? new SoundEntry();
     }
 
     public CharacterDialogue FindCharacter(string characterId)
@@ -144,64 +157,65 @@ public class AudioLibrary : ScriptableObject
         return null;
     }
 
-    public AudioClip GetBgmClip(int index)
+    public SoundEntry GetBgm(int index)
     {
         if (bgmTracks == null || index < 0 || index >= bgmTracks.Length)
-            return null;
-        return bgmTracks[index].clip;
+            return new SoundEntry();
+        var t = bgmTracks[index];
+        return t?.track ?? new SoundEntry();
     }
 
-    public AudioClip GetBgmClipByName(string trackName)
+    public SoundEntry GetBgmByName(string trackName)
     {
         if (string.IsNullOrEmpty(trackName) || bgmTracks == null)
-            return null;
+            return new SoundEntry();
 
         for (int i = 0; i < bgmTracks.Length; i++)
         {
             if (bgmTracks[i] != null &&
                 string.Equals(bgmTracks[i].trackName, trackName, StringComparison.OrdinalIgnoreCase))
-                return bgmTracks[i].clip;
+                return bgmTracks[i].track ?? new SoundEntry();
         }
 
-        return null;
+        return new SoundEntry();
     }
 
-    public AudioClip GetSfx(SfxId id)
+    public SoundEntry GetSfx(SfxId id)
     {
         return id switch
         {
-            SfxId.DoorOpen => sfx.doorOpen,
-            SfxId.DoorClose => sfx.doorClose,
-            SfxId.Footstep1 => sfx.footstep1,
-            SfxId.Footstep2 => sfx.footstep2,
-            SfxId.Footstep3 => sfx.footstep3,
-            SfxId.SittingDown => sfx.sittingDown,
-            SfxId.Click => sfx.click,
-            SfxId.TrainStop => sfx.trainStop,
-            SfxId.TrainGo => sfx.trainGo,
-            _ => null
+            SfxId.DoorOpen => sfx.doorOpen ?? new SoundEntry(),
+            SfxId.DoorClose => sfx.doorClose ?? new SoundEntry(),
+            SfxId.Footstep1 => sfx.footstep1 ?? new SoundEntry(),
+            SfxId.Footstep2 => sfx.footstep2 ?? new SoundEntry(),
+            SfxId.Footstep3 => sfx.footstep3 ?? new SoundEntry(),
+            SfxId.SittingDown => sfx.sittingDown ?? new SoundEntry(),
+            SfxId.Click => sfx.click ?? new SoundEntry(),
+            SfxId.TrainStop => sfx.trainStop ?? new SoundEntry(),
+            SfxId.TrainGo => sfx.trainGo ?? new SoundEntry(),
+            _ => new SoundEntry()
         };
     }
 
     /// <summary>Random non-null footstep from footstep1–3.</summary>
-    public AudioClip GetRandomFootstepClip()
+    public SoundEntry GetRandomFootstep()
     {
-        var pool = new List<AudioClip>(3);
-        if (sfx.footstep1 != null) pool.Add(sfx.footstep1);
-        if (sfx.footstep2 != null) pool.Add(sfx.footstep2);
-        if (sfx.footstep3 != null) pool.Add(sfx.footstep3);
+        var pool = new List<SoundEntry>(3);
+        if (sfx.footstep1 != null && sfx.footstep1.clip != null) pool.Add(sfx.footstep1);
+        if (sfx.footstep2 != null && sfx.footstep2.clip != null) pool.Add(sfx.footstep2);
+        if (sfx.footstep3 != null && sfx.footstep3.clip != null) pool.Add(sfx.footstep3);
         if (pool.Count == 0)
-            return null;
+            return new SoundEntry();
         return pool[UnityEngine.Random.Range(0, pool.Count)];
     }
 
-    public AudioClip GetAmbience(AmbienceId id)
+    public SoundEntry GetAmbience(AmbienceId id)
     {
         return id switch
         {
-            AmbienceId.TrainTunnel => ambience.trainTunnelAmbience,
-            AmbienceId.TrainCar => ambience.trainCarAmbience,
-            _ => null
+            AmbienceId.TrainTunnel => ambience.trainTunnelAmbience ?? new SoundEntry(),
+            AmbienceId.TrainCar => ambience.trainCarAmbience ?? new SoundEntry(),
+            _ => new SoundEntry()
         };
     }
 }
