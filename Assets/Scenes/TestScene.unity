@@ -2886,6 +2886,7 @@ MonoBehaviour:
   ObjectName: InfoScreen
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &372810345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3390,6 +3391,7 @@ MonoBehaviour:
   ObjectName: 
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!1 &385029671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4752,6 +4754,7 @@ MonoBehaviour:
   ObjectName: Window
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &538122102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6909,6 +6912,7 @@ MonoBehaviour:
   ObjectName: Ai Ad
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &776010304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7650,6 +7654,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InteractionManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &833014660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8109,6 +8125,7 @@ MonoBehaviour:
   ObjectName: FamilyAd
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &894088379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9793,6 +9810,7 @@ MonoBehaviour:
   ObjectName: Real Estate Ad
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1014472924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10247,6 +10265,7 @@ MonoBehaviour:
   ObjectName: Graffiti
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1045087854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10378,7 +10397,6 @@ MonoBehaviour:
   currentAnimationManager: {fileID: 0}
   NPCSprite: {fileID: 886632182}
   currentStoryObjects: []
-  audioManager: {fileID: 0}
   GameActive: 0
 --- !u!1 &1069986363
 GameObject:
@@ -10447,6 +10465,7 @@ MonoBehaviour:
   ObjectName: LoversAd
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1070359075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12413,6 +12432,7 @@ MonoBehaviour:
   ObjectName: 2028
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1276830073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15812,6 +15832,7 @@ MonoBehaviour:
   ObjectName: 
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!1 &1589210937
 GameObject:
   m_ObjectHideFlags: 0
@@ -16010,6 +16031,7 @@ MonoBehaviour:
   ObjectName: Map
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1598289439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16451,6 +16473,7 @@ MonoBehaviour:
   ObjectName: Met Ad
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1626734625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18117,6 +18140,7 @@ MonoBehaviour:
   ObjectName: DesertAd
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1823792716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19091,6 +19115,7 @@ MonoBehaviour:
   ObjectName: Dent
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1913074268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19868,6 +19893,7 @@ MonoBehaviour:
   ObjectName: Protest Poster
   IsHovered: 0
   IsClicked: 0
+  pressOverlayMaterialOverride: {fileID: 0}
 --- !u!65 &1996187331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20604,6 +20630,7 @@ MonoBehaviour:
   Menu: {fileID: 0}
   Outro: {fileID: 2050647427}
   audioManager: {fileID: 1149227850}
+  lastNPC: {fileID: 669099231}
 --- !u!4 &2079678149
 Transform:
   m_ObjectHideFlags: 0

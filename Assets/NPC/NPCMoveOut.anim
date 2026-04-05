@@ -80,7 +80,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 2.0333333
+        time: 2
         value: {x: 6.11, y: 0.1, z: -18.38}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -91,8 +91,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 3
         value: {x: 6.11, y: 0.1, z: -20.13}
-        inSlope: {x: 0, y: 0, z: -0.8571461}
-        outSlope: {x: 0, y: 0, z: -0.8571461}
+        inSlope: {x: 0, y: 0, z: -0.8421084}
+        outSlope: {x: 0, y: 0, z: -0.8421084}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -213,7 +213,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 2.0333333
+        time: 2
         value: 6.11
         inSlope: 0
         outSlope: 0
@@ -261,7 +261,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 2.0333333
+        time: 2
         value: 0.1
         inSlope: 0
         outSlope: 0
@@ -309,7 +309,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 2.0333333
+        time: 2
         value: -18.38
         inSlope: 0
         outSlope: 0
@@ -320,8 +320,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 3
         value: -20.13
-        inSlope: -0.8571461
-        outSlope: -0.8571461
+        inSlope: -0.8421084
+        outSlope: -0.8421084
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -641,7 +641,42 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 2
+    functionName: playSteps
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5
+    functionName: playSteps
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3
+    functionName: playSteps
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.5
+    functionName: playSteps
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 4
+    functionName: playSteps
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.5
     functionName: NextStage
     data: 
     objectReferenceParameter: {fileID: 0}
