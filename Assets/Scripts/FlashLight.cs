@@ -3,30 +3,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Keeps a <see cref="Light"/> on the cursor ray used by <see cref="InteractionManager"/>
-/// (when assigned), and flickers on left click.
+/// Keeps the light’s world position as you placed it; aims the spotlight along corrected mouse rays
+/// (<see cref="CursorCorrection"/>) so the beam endpoint matches the cursor on a play surface plane.
 /// </summary>
-[RequireComponent(typeof(Light))]
 public class FlashLight : MonoBehaviour
 {
-    [Tooltip("Uses the same corrected screen ray as interactions. If unset, falls back to local cursor math.")]
-    [SerializeField] InteractionManager interactionSource;
+    [Tooltip("GameObject that has the Light to aim and flicker.")]
+    [SerializeField] GameObject lightObject;
+
+    [Tooltip("If set, mouse position is passed through this component’s Correct(). Otherwise uses CursorCorrection.Instance when present.")]
+    [SerializeField] CursorCorrection cursorCorrection;
 
     [SerializeField] Camera targetCamera;
 
-    [Tooltip("Max ray length when looking for a surface to place the light on.")]
-    [SerializeField] float raycastMaxDistance = 100f;
+    [Tooltip("Put this on the surface you point at (e.g. wall). Position on the plane; forward should point from the surface toward the camera.")]
+    [SerializeField] Transform aimSurface;
 
-    [Tooltip("World distance along the ray when nothing is hit.")]
-    [SerializeField] float fallbackDistance = 5f;
+    [Tooltip("Max ray length when intersecting the aim plane.")]
+    [SerializeField] float rayMaxDistance = 500f;
 
-    [Tooltip("Nudge the light slightly off the surface along the hit normal.")]
-    [SerializeField] float surfaceOffset = 0.02f;
-
-    [SerializeField] LayerMask raycastLayers = ~0;
+    [Tooltip("If the plane is missed, aim this far along the mouse ray from the camera.")]
+    [SerializeField] float fallbackAimDistance = 15f;
 
     [Tooltip("How long the click flicker lasts.")]
     [SerializeField] float flickerDuration = 0.35f;
+
+    [Tooltip("Upper intensity while flickering (lower bound is the Light’s intensity at enable).")]
+    [SerializeField] float flickerPeakIntensity = 5f;
 
     Light _light;
     float _baseIntensity;
@@ -34,29 +37,57 @@ public class FlashLight : MonoBehaviour
 
     void Awake()
     {
-        _light = GetComponent<Light>();
-        _baseIntensity = _light.intensity;
+        CacheLight();
+        if (_light != null)
+            _baseIntensity = _light.intensity;
     }
 
     void OnEnable()
     {
-        _baseIntensity = _light.intensity;
+        CacheLight();
+        if (_light != null)
+            _baseIntensity = _light.intensity;
+    }
+
+    void OnValidate()
+    {
+        CacheLight();
+    }
+
+    void CacheLight()
+    {
+        _light = lightObject != null ? lightObject.GetComponent<Light>() : null;
+    }
+
+    Vector2 CorrectScreen(Vector2 raw)
+    {
+        if (cursorCorrection != null)
+            return cursorCorrection.Correct(raw);
+        if (CursorCorrection.Instance != null)
+            return CursorCorrection.Instance.Correct(raw);
+        return raw;
     }
 
     void LateUpdate()
     {
-        Ray ray = GetCursorRay();
-        if (ray.direction.sqrMagnitude < 1e-6f)
+        if (_light == null || Mouse.current == null)
             return;
 
-        if (Physics.Raycast(ray, out RaycastHit hit, raycastMaxDistance, raycastLayers, QueryTriggerInteraction.Ignore))
-            transform.position = hit.point + hit.normal * surfaceOffset;
-        else
-            transform.position = ray.GetPoint(fallbackDistance);
+        Camera cam = targetCamera != null ? targetCamera : Camera.main;
+        if (cam == null)
+            return;
 
-        transform.rotation = Quaternion.LookRotation(ray.direction);
+        Vector2 screen = CorrectScreen(Mouse.current.position.ReadValue());
+        Ray ray = cam.ScreenPointToRay(screen);
 
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        Vector3 aimWorld = GetAimWorldPoint(ray);
+
+        Vector3 origin = _light.transform.position;
+        Vector3 dir = aimWorld - origin;
+        if (dir.sqrMagnitude > 1e-10f)
+            _light.transform.rotation = Quaternion.LookRotation(dir.normalized);
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (_flickerRoutine != null)
                 StopCoroutine(_flickerRoutine);
@@ -64,35 +95,35 @@ public class FlashLight : MonoBehaviour
         }
     }
 
-    Ray GetCursorRay()
+    Vector3 GetAimWorldPoint(Ray ray)
     {
-        if (interactionSource != null)
-            return interactionSource.CurrentCursorRay;
+        if (aimSurface != null)
+        {
+            var plane = new Plane(aimSurface.forward, aimSurface.position);
+            if (plane.Raycast(ray, out float t) && t > 0f && t <= rayMaxDistance)
+                return ray.GetPoint(t);
+        }
 
-        if (Mouse.current == null)
-            return default;
-
-        Camera cam = targetCamera != null ? targetCamera : Camera.main;
-        if (cam == null)
-            return default;
-
-        Vector2 screenPos = Mouse.current.position.ReadValue();
-        if (CursorCorrection.Instance != null)
-            screenPos = CursorCorrection.Instance.Correct(screenPos);
-
-        return cam.ScreenPointToRay(screenPos);
+        return ray.GetPoint(fallbackAimDistance);
     }
 
     IEnumerator FlickerRoutine()
     {
+        if (_light == null)
+        {
+            _flickerRoutine = null;
+            yield break;
+        }
+
+        float original = _baseIntensity;
         float endTime = Time.time + flickerDuration;
         while (Time.time < endTime)
         {
-            _light.intensity = _baseIntensity * Random.Range(0.25f, 1.15f);
+            _light.intensity = Random.value > 0.5f ? original : flickerPeakIntensity;
             yield return new WaitForSeconds(Random.Range(0.02f, 0.07f));
         }
 
-        _light.intensity = _baseIntensity;
+        _light.intensity = original;
         _flickerRoutine = null;
     }
 }
