@@ -20,7 +20,8 @@ public enum SfxId
     SittingDown,
     Click,
     TrainStop,
-    TrainGo
+    TrainGo,
+    LastStop
 }
 
 public enum AmbienceId
@@ -87,6 +88,7 @@ public class SfxClips
     public SoundEntry click = new SoundEntry();
     public SoundEntry trainStop = new SoundEntry();
     public SoundEntry trainGo = new SoundEntry();
+     public SoundEntry lastStop = new SoundEntry();
 }
 
 /// <summary>
@@ -193,6 +195,7 @@ public class AudioLibrary : ScriptableObject
             SfxId.Click => sfx.click ?? new SoundEntry(),
             SfxId.TrainStop => sfx.trainStop ?? new SoundEntry(),
             SfxId.TrainGo => sfx.trainGo ?? new SoundEntry(),
+            SfxId.LastStop => sfx.lastStop ?? new SoundEntry(),
             _ => new SoundEntry()
         };
     }
