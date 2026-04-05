@@ -10377,6 +10377,7 @@ MonoBehaviour:
   currentAnimationManager: {fileID: 0}
   NPCSprite: {fileID: 886632182}
   currentStoryObjects: []
+  audioManager: {fileID: 0}
   GameActive: 0
 --- !u!1 &1069986363
 GameObject:
@@ -20550,6 +20551,8 @@ MonoBehaviour:
   - {fileID: 441075488}
   NpcCount: 0
   Menu: {fileID: 0}
+  Outro: {fileID: 2050647427}
+  audioManager: {fileID: 1149227850}
 --- !u!4 &2079678149
 Transform:
   m_ObjectHideFlags: 0

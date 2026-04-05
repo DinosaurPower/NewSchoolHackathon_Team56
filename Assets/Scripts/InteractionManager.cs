@@ -15,7 +15,7 @@ public class InteractionManager : MonoBehaviour
     public AnimationManager currentAnimationManager;
     public GameObject NPCSprite;
     public List<StoryObject> currentStoryObjects = new List<StoryObject>();
-
+   
     StoryObject _lastHovered;
     StoryObject _lastClicked;
     public bool GameActive = false;
@@ -75,14 +75,14 @@ public class InteractionManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("No object hit");
+              //  Debug.Log("No object hit");
             }
         }
 
         if (currentStoryObjects.Count == 0)
         {
             currentNPC.Body.Leave();
-            Debug.Log("You cleared!");
+          // Debug.Log("You cleared!");
         }
         }
     }

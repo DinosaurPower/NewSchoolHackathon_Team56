@@ -21,7 +21,7 @@ public class StoryObject : MonoBehaviour
     void LateUpdate()
     {
         if (IsHovered && !_debugWasHoveredLastFrame)
-            Debug.Log($"[StoryObject] is hovered: {ObjectName}");
+         //   Debug.Log($"[StoryObject] is hovered: {ObjectName}");
         _debugWasHoveredLastFrame = IsHovered;
 
         if (IsClicked)
