@@ -10,6 +10,12 @@ public class NPCInfo : MonoBehaviour
     
     public AnimationManager Body;
     public AudioManager Voice;
+
+    void OnDisable()
+    {
+        StopFootsteps();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   public void StartLoop()
     {
@@ -40,9 +46,22 @@ public void WrongSound(StoryObject checkedObject)
         }
 
 }
-public void Footsteps()
+    Coroutine _footstepLoop;
+
+    public void Footsteps()
     {
-  StartCoroutine(FootstepRoutine());
+        if (_footstepLoop != null || Voice == null)
+            return;
+        _footstepLoop = StartCoroutine(FootstepRoutine());
+    }
+
+    public void StopFootsteps()
+    {
+        if (_footstepLoop != null)
+        {
+            StopCoroutine(_footstepLoop);
+            _footstepLoop = null;
+        }
     }
 
     public void SitDown()
@@ -50,13 +69,12 @@ public void Footsteps()
         Voice.PlaySfx(SfxId.SittingDown, 1);
     }
 
-
-         IEnumerator FootstepRoutine()
-{
-    while (true)
+    IEnumerator FootstepRoutine()
     {
-        Voice.PlayRandomFootstep();
-        yield return new WaitForSeconds(0.5f); // adjust timing here
+        while (true)
+        {
+            Voice.PlayRandomFootstep();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
-}
 }

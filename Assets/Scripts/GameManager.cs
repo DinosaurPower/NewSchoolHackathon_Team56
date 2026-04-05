@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public NPCInfo[] NPCInfos;
     public int NpcCount = 0;
     public GameObject Menu;
+    public GameObject Outro;
+     public AudioManager audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,11 +24,14 @@ public class GameManager : MonoBehaviour
         if (NpcCount <= NPCInfos.Length-1){
         NPCInfos[NpcCount].StartLoop();
         NpcCount++;
+        } else if (NpcCount == NPCInfos.Length)
+        {
+            Debug.Log("goodbye!");
+
+            audioManager.PlaySfx(SfxId.LastStop, 1);
+            Outro.SetActive(true);
         }
     }
-    public void StartGame()
-    {
-        
-    }
+
    
 }
