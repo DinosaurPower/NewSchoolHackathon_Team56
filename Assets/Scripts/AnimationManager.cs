@@ -63,10 +63,12 @@ public class AnimationManager : MonoBehaviour
 
     public void Pause() {
         BGMotion.speed = 0f; // Pauses all animations on this animator
+        interactionManager.currentNPC.Voice.PlayAmbience(AmbienceId.TrainCar);
     }
 
     void Resume() {
         BGMotion.speed = 1f; // Resumes at normal speed
+         interactionManager.currentNPC.Voice.PlayAmbience(AmbienceId.TrainTunnel);
     }
 
      public void playIntroLine()
