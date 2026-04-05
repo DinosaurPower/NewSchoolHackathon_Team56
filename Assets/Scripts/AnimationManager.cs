@@ -5,6 +5,7 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator MovingInAndOut;
     public Animator FabricMotions;
+    public Animator BGMotion;
     public GameManager gameManager;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,4 +39,13 @@ public class AnimationManager : MonoBehaviour
     {
         gameManager.CallNextNPC();
     }
+
+    public void Pause() {
+        BGMotion.speed = 0f; // Pauses all animations on this animator
+    }
+
+    void Resume() {
+        BGMotion.speed = 1f; // Resumes at normal speed
+    }
+
 }
