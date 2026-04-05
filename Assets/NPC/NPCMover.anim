@@ -627,7 +627,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5
+  - time: 4.6666665
     functionName: Resume
     data: 
     objectReferenceParameter: {fileID: 0}
