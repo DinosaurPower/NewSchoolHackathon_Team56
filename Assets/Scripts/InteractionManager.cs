@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine.InputSystem;
 
 public class InteractionManager : MonoBehaviour
@@ -11,6 +10,9 @@ public class InteractionManager : MonoBehaviour
 
     public List<StoryObject> currentStoryObjects = new List<StoryObject>();
 
+    StoryObject _lastHovered;
+    StoryObject _lastClicked;
+
     void Start()
     {
         StoryStart(starterNPC);
@@ -18,20 +20,45 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
+        if (_lastClicked != null)
+        {
+            _lastClicked.IsClicked = false;
+            _lastClicked = null;
+        }
+
+        if (_lastHovered != null)
+        {
+            _lastHovered.IsHovered = false;
+            _lastHovered = null;
+        }
+
+        Vector2 screenPos = Mouse.current.position.ReadValue();
+        if (CursorCorrection.Instance != null)
+            screenPos = CursorCorrection.Instance.Correct(screenPos);
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        StoryObject hitStory = null;
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            hitStory = hit.collider.GetComponent<StoryObject>();
+            if (hitStory != null)
+            {
+                hitStory.IsHovered = true;
+                _lastHovered = hitStory;
+            }
+        }
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (hitStory != null)
             {
-                StoryObject checkedObject = hit.collider.GetComponent<StoryObject>();
-                if (checkedObject!= null){Debug.Log("Checking " + checkedObject.ObjectName);}
-                if (checkedObject != null && currentStoryObjects.Contains(checkedObject))
+                hitStory.IsClicked = true;
+                _lastClicked = hitStory;
+                if (currentStoryObjects.Contains(hitStory))
                 {
                    
                     currentNPC.RightSound(checkedObject);
-                    Debug.Log("Found " + checkedObject.ObjectName);
-                    currentStoryObjects.Remove(checkedObject);
+                    Debug.Log("Found " + hitStory.ObjectName);
+                    currentStoryObjects.Remove(hitStory);
                 } else if (checkedObject != null)
                 {
                    currentNPC.WrongSound(checkedObject); 
@@ -46,7 +73,7 @@ public class InteractionManager : MonoBehaviour
 
         if (currentStoryObjects.Count == 0)
         {
-             currentNPC.Body.Leave();
+            currentNPC.Body.Leave();
             Debug.Log("You cleared!");
         }
     }
@@ -54,7 +81,7 @@ public class InteractionManager : MonoBehaviour
     public void StoryStart(NPCInfo CurrentNPC)
     {
         currentNPC = CurrentNPC;
-        currentStoryObjects.Clear(); // IMPORTANT
+        currentStoryObjects.Clear();
         currentStoryObjects.AddRange(currentNPC.LostPossessions);
         currentNPC.Body.MovingInAndOut.SetTrigger("WalkIn");
     }
