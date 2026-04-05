@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d40ffd71c57c54983f557aacdaeabe, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
+  characters:
+  - characterId: 
+    needMoreEvidence: {fileID: 0}
+    no: {fileID: 0}
+    sceneEnd: {fileID: 0}
+    dialogLinesByObjectIndex: []
+  - characterId: 
+    needMoreEvidence: {fileID: 0}
+    no: {fileID: 0}
+    sceneEnd: {fileID: 0}
+    dialogLinesByObjectIndex: []
+  - characterId: 
+    needMoreEvidence: {fileID: 0}
+    no: {fileID: 0}
+    sceneEnd: {fileID: 0}
+    dialogLinesByObjectIndex: []
+  bgmTracks:
+  - trackName: 
+    clip: {fileID: 0}
+  - trackName: 
+    clip: {fileID: 0}
+  sfx:
+    doorOpen: {fileID: 0}
+    doorClose: {fileID: 0}
+    footstep1: {fileID: 0}
+    footstep2: {fileID: 0}
+    footstep3: {fileID: 0}
+    sittingDown: {fileID: 0}
+    click: {fileID: 0}
+    trainStop: {fileID: 0}
+    trainGo: {fileID: 0}
+  ambience:
+    trainTunnelAmbience: {fileID: 0}
+    trainCarAmbience: {fileID: 0}
