@@ -146,7 +146,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dialoug
+  m_Name: Dialogue
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 5ee9de25c8fa3d64ca8234dc427f3c4e
   m_Children: []
