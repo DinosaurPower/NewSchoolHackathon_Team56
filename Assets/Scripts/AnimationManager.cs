@@ -19,7 +19,7 @@ public class AnimationManager : MonoBehaviour
     void Update()
     {
         if (FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatout")||FabricMotions.GetCurrentAnimatorStateInfo(0).IsName("floatin")) {
-    Debug.Log("Walking");
+    //Debug.Log("Walking");
     interactionManager.currentNPC.Footsteps();
 }
     }

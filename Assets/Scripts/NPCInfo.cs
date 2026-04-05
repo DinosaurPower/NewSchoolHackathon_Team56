@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using System.Collections;
 public class NPCInfo : MonoBehaviour
 {
     public string Name;
@@ -41,11 +42,21 @@ public void WrongSound(StoryObject checkedObject)
 }
 public void Footsteps()
     {
-        Voice.PlayRandomFootstep();
+  StartCoroutine(FootstepRoutine());
     }
 
     public void SitDown()
     {
         Voice.PlaySfx(SfxId.SittingDown, 1);
     }
+
+
+         IEnumerator FootstepRoutine()
+{
+    while (true)
+    {
+        Voice.PlayRandomFootstep();
+        yield return new WaitForSeconds(0.5f); // adjust timing here
+    }
+}
 }
