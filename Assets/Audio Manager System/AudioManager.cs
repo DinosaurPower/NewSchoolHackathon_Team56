@@ -61,9 +61,9 @@ public class AudioManager : MonoBehaviour
         if (library == null || voiceSource == null)
             return;
 
-        var clip = library.GetDialogueClip(characterId, line);
-        if (clip != null)
-            voiceSource.PlayOneShot(clip);
+        var sound = library.GetDialogue(characterId, line);
+        if (sound.clip != null)
+            voiceSource.PlayOneShot(sound.clip, sound.volume);
     }
 
     public void PlayObjectDialogue(string characterId, int objectIndex)
@@ -71,9 +71,9 @@ public class AudioManager : MonoBehaviour
         if (library == null || voiceSource == null)
             return;
 
-        var clip = library.GetObjectDialogueClip(characterId, objectIndex);
-        if (clip != null)
-            voiceSource.PlayOneShot(clip);
+        var sound = library.GetObjectDialogue(characterId, objectIndex);
+        if (sound.clip != null)
+            voiceSource.PlayOneShot(sound.clip, sound.volume);
     }
 
     public void PlaySfx(SfxId id, float volumeScale = 1f)
@@ -81,9 +81,9 @@ public class AudioManager : MonoBehaviour
         if (library == null || sfxSource == null)
             return;
 
-        var clip = library.GetSfx(id);
-        if (clip != null)
-            sfxSource.PlayOneShot(clip, volumeScale);
+        var sound = library.GetSfx(id);
+        if (sound.clip != null)
+            sfxSource.PlayOneShot(sound.clip, sound.volume * volumeScale);
     }
 
     public void PlayRandomFootstep(float volumeScale = 1f)
@@ -91,9 +91,9 @@ public class AudioManager : MonoBehaviour
         if (library == null || sfxSource == null)
             return;
 
-        var clip = library.GetRandomFootstepClip();
-        if (clip != null)
-            sfxSource.PlayOneShot(clip, volumeScale);
+        var sound = library.GetRandomFootstep();
+        if (sound.clip != null)
+            sfxSource.PlayOneShot(sound.clip, sound.volume * volumeScale);
     }
 
     public void PlayBgm(int trackIndex, bool loop = true)
@@ -101,11 +101,12 @@ public class AudioManager : MonoBehaviour
         if (library == null || musicSource == null)
             return;
 
-        var clip = library.GetBgmClip(trackIndex);
-        if (clip == null)
+        var sound = library.GetBgm(trackIndex);
+        if (sound.clip == null)
             return;
 
-        musicSource.clip = clip;
+        musicSource.clip = sound.clip;
+        musicSource.volume = sound.volume;
         musicSource.loop = loop;
         musicSource.Play();
     }
@@ -115,11 +116,12 @@ public class AudioManager : MonoBehaviour
         if (library == null || musicSource == null)
             return;
 
-        var clip = library.GetBgmClipByName(trackName);
-        if (clip == null)
+        var sound = library.GetBgmByName(trackName);
+        if (sound.clip == null)
             return;
 
-        musicSource.clip = clip;
+        musicSource.clip = sound.clip;
+        musicSource.volume = sound.volume;
         musicSource.loop = loop;
         musicSource.Play();
     }
@@ -135,11 +137,12 @@ public class AudioManager : MonoBehaviour
         if (library == null || ambienceSource == null)
             return;
 
-        var clip = library.GetAmbience(id);
-        if (clip == null)
+        var sound = library.GetAmbience(id);
+        if (sound.clip == null)
             return;
 
-        ambienceSource.clip = clip;
+        ambienceSource.clip = sound.clip;
+        ambienceSource.volume = sound.volume;
         ambienceSource.loop = loop;
         ambienceSource.Play();
     }
