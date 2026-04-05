@@ -57,7 +57,7 @@ MonoBehaviour:
     footstep1: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
     footstep2: {fileID: 8300000, guid: e0526e46a594b42bd8f70158c2cdc133, type: 3}
     footstep3: {fileID: 8300000, guid: 5103d091edaaf4eb3912e2bf4f5f13db, type: 3}
-    sittingDown: {fileID: 8300000, guid: 9fe86d58652814eee8e9f99bc4ea561f, type: 3}
+    sittingDown: {fileID: 8300000, guid: d32d93c067f6a4db98eacc707327919a, type: 3}
     click: {fileID: 0}
     trainStop: {fileID: 8300000, guid: b500ac1f29ff4432faeed92c3bd942e9, type: 3}
     trainGo: {fileID: 8300000, guid: 595a92c3dfa684397861780ab0cb0245, type: 3}
