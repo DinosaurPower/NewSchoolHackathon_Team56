@@ -8,7 +8,7 @@ public class AnimationManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TravelIn();
+     
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class AnimationManager : MonoBehaviour
     }
     public void TravelIn()
     {
-        MovingInAndOut.SetTrigger("WalkIn");
+       
     }
     public void SitDown()
     {
