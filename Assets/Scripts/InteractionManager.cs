@@ -25,7 +25,10 @@ public class InteractionManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {   if (GameActive == false)
+        {
+            starterNPC.StopFootsteps();
+        }
         if (GameActive == true){
         if (_lastClicked != null)
         {
@@ -89,9 +92,10 @@ public class InteractionManager : MonoBehaviour
 
     public void StoryStart(NPCInfo CurrentNPC)
     {
-        if (currentNPC != null)
+          currentNPC = CurrentNPC;
+        if (currentNPC != null){
             currentNPC.StopFootsteps();
-        currentNPC = CurrentNPC;
+            }
         currentStoryObjects.Clear();
         currentStoryObjects.AddRange(currentNPC.LostPossessions);
         currentNPC.Body.MovingInAndOut.SetTrigger("WalkIn");
@@ -105,5 +109,9 @@ public class InteractionManager : MonoBehaviour
         GameActive = true;
         
         
+    }
+    public void playSteps()
+    {
+        currentNPC.Voice.PlayRandomFootstep(1);
     }
 }

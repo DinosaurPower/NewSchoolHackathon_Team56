@@ -77,6 +77,10 @@ public class AnimationManager : MonoBehaviour
     {
         interactionManager.currentNPC.OutroSound();
     }
+    public void playSteps()
+    {
+        interactionManager.playSteps();
+    }
 
 
 }
