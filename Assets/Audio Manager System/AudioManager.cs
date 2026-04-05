@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -13,7 +14,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource voiceSource;
     [SerializeField] private AudioSource musicSource;
+    [Tooltip("Second music source for crossfades. If unset, a matching AudioSource is added at runtime.")]
+    [SerializeField] private AudioSource musicSourceB;
     [SerializeField] private AudioSource ambienceSource;
+
+    Coroutine _bgmCrossfadeRoutine;
+
+    [Header("BGM")]
+    [Tooltip("Play the first BGM entry in the library (index 0) when the scene starts. CrossfadeBgmTrack1ToTrack2 then replaces it with track 2.")]
+    [SerializeField] private bool playFirstBgmOnStart = true;
 
     [Header("Mixer routing")]
     [Tooltip("Dialogue / voice lines (e.g. Dialoug group on AudioMixer).")]
@@ -29,7 +38,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        EnsureMusicSourceB();
         ApplyMixerRouting();
+    }
+
+    void Start()
+    {
+        if (playFirstBgmOnStart)
+            PlayBgm(0);
     }
 
 #if UNITY_EDITOR
@@ -47,6 +63,8 @@ public class AudioManager : MonoBehaviour
             sfxSource.outputAudioMixerGroup = sfxMixerGroup;
         if (musicSource != null && bgmMixerGroup != null)
             musicSource.outputAudioMixerGroup = bgmMixerGroup;
+        if (musicSourceB != null && bgmMixerGroup != null)
+            musicSourceB.outputAudioMixerGroup = bgmMixerGroup;
         if (ambienceSource != null && ambienceMixerGroup != null)
             ambienceSource.outputAudioMixerGroup = ambienceMixerGroup;
     }
@@ -128,8 +146,104 @@ public class AudioManager : MonoBehaviour
 
     public void StopBgm()
     {
+        if (_bgmCrossfadeRoutine != null)
+        {
+            StopCoroutine(_bgmCrossfadeRoutine);
+            _bgmCrossfadeRoutine = null;
+        }
         if (musicSource != null)
             musicSource.Stop();
+        if (musicSourceB != null)
+            musicSourceB.Stop();
+    }
+
+    /// <summary>
+    /// Crossfades BGM from library track index 0 to index 1 (first → second entry in <see cref="AudioLibrary.bgmTracks"/>).
+    /// </summary>
+    public void CrossfadeBgmTrack1ToTrack2(float duration = 2f)
+    {
+        if (_bgmCrossfadeRoutine != null)
+            StopCoroutine(_bgmCrossfadeRoutine);
+        _bgmCrossfadeRoutine = StartCoroutine(CrossfadeBgmRoutine(0, 1, duration));
+    }
+
+    void EnsureMusicSourceB()
+    {
+        if (musicSourceB != null || musicSource == null)
+            return;
+        musicSourceB = gameObject.AddComponent<AudioSource>();
+        musicSourceB.playOnAwake = false;
+        musicSourceB.loop = true;
+        musicSourceB.spatialBlend = musicSource.spatialBlend;
+        musicSourceB.priority = musicSource.priority;
+    }
+
+    IEnumerator CrossfadeBgmRoutine(int fromIndex, int toIndex, float duration)
+    {
+        EnsureMusicSourceB();
+        if (library == null || musicSource == null || musicSourceB == null)
+        {
+            _bgmCrossfadeRoutine = null;
+            yield break;
+        }
+
+        var from = library.GetBgm(fromIndex);
+        var to = library.GetBgm(toIndex);
+        if (to.clip == null)
+        {
+            _bgmCrossfadeRoutine = null;
+            yield break;
+        }
+
+        if (from.clip == null)
+        {
+            PlayBgm(toIndex);
+            _bgmCrossfadeRoutine = null;
+            yield break;
+        }
+
+        if (duration <= 0f)
+        {
+            musicSourceB.Stop();
+            PlayBgm(toIndex);
+            _bgmCrossfadeRoutine = null;
+            yield break;
+        }
+
+        musicSource.clip = from.clip;
+        musicSource.loop = true;
+        musicSource.volume = from.volume;
+        if (!musicSource.isPlaying)
+            musicSource.Play();
+
+        musicSourceB.clip = to.clip;
+        musicSourceB.loop = true;
+        musicSourceB.volume = 0f;
+        musicSourceB.time = 0f;
+        musicSourceB.Play();
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = Mathf.Clamp01(t / duration);
+            musicSource.volume = from.volume * (1f - k);
+            musicSourceB.volume = to.volume * k;
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.clip = to.clip;
+        musicSource.loop = true;
+        musicSource.time = musicSourceB.time;
+        musicSource.volume = to.volume;
+        musicSource.Play();
+
+        musicSourceB.Stop();
+        musicSourceB.clip = null;
+        musicSourceB.volume = to.volume;
+
+        _bgmCrossfadeRoutine = null;
     }
 
     public void PlayAmbience(AmbienceId id, bool loop = true)

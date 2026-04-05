@@ -89,14 +89,14 @@ MonoBehaviour:
       clip: {fileID: 0}
       volume: 1
   bgmTracks:
-  - trackName: 
+  - trackName: Title Music
     track:
-      clip: {fileID: 0}
-      volume: 1
-  - trackName: 
+      clip: {fileID: 8300000, guid: 8493dbbb50df84cfb95ae10ee82d21f1, type: 3}
+      volume: 0.9
+  - trackName: GamePlay
     track:
-      clip: {fileID: 0}
-      volume: 1
+      clip: {fileID: 8300000, guid: ac39ed057f8714aa2aa6b2390e291eb4, type: 3}
+      volume: 0.394
   sfx:
     doorOpen:
       clip: {fileID: 8300000, guid: ebc70097bd92441a8862c3a1fe0b4078, type: 3}
