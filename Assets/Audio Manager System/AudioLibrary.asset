@@ -24,19 +24,27 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 75ba53b0c120c4ad1b4d144b2a3e9fa7, type: 3}
     - {fileID: 8300000, guid: 849e7c8bbdfb54684a96f4f502b68665, type: 3}
     footsteps: {fileID: 8300000, guid: b09eaa1365dde47b4bdc8a9677e55ece, type: 3}
-  - characterId: 
-    needMoreEvidence: {fileID: 0}
-    no: {fileID: 0}
-    sceneEnd: {fileID: 0}
-    sceneStart: {fileID: 0}
-    dialogLinesByObjectIndex: []
+  - characterId: Loss
+    needMoreEvidence: {fileID: 8300000, guid: a93fc0e7f254e4348a17e27f443bfd72, type: 3}
+    no: {fileID: 8300000, guid: c72214f75bd804b339ae62f7a0d4c38a, type: 3}
+    sceneEnd: {fileID: 8300000, guid: 4cc1fd3ed658b409999da07338ea4def, type: 3}
+    sceneStart: {fileID: 8300000, guid: 508dbbd576337478ca6ba7d145cb3ccf, type: 3}
+    dialogLinesByObjectIndex:
+    - {fileID: 8300000, guid: b2ac90fe82e8242428125fce5a1ae61e, type: 3}
+    - {fileID: 8300000, guid: 34c325e1c6ff14635ac9f3ed05f0efb8, type: 3}
+    - {fileID: 8300000, guid: 4808b669089354c7199474a0902461a1, type: 3}
+    - {fileID: 8300000, guid: 170172e8c596e41e6a60598bde27e321, type: 3}
     footsteps: {fileID: 0}
-  - characterId: 
-    needMoreEvidence: {fileID: 0}
-    no: {fileID: 0}
-    sceneEnd: {fileID: 0}
-    sceneStart: {fileID: 0}
-    dialogLinesByObjectIndex: []
+  - characterId: Home
+    needMoreEvidence: {fileID: 8300000, guid: 772f952428cfa4f6da585a55ca7232e8, type: 3}
+    no: {fileID: 8300000, guid: aebf2d8daa5ae49f5bb3e728fc021712, type: 3}
+    sceneEnd: {fileID: 8300000, guid: 81613f0b6598641b3aa710e3a6a8335e, type: 3}
+    sceneStart: {fileID: 8300000, guid: e2cb5f49acacb4fde90df97163670211, type: 3}
+    dialogLinesByObjectIndex:
+    - {fileID: 8300000, guid: 192d315d01233422d853a404e9186955, type: 3}
+    - {fileID: 8300000, guid: 3b96b5ee6135847a7b88ae426f3fc7bc, type: 3}
+    - {fileID: 8300000, guid: f15d668b418844089b23a3b23dabac02, type: 3}
+    - {fileID: 8300000, guid: ad3d0f894e6c447c182e174d2778b9e9, type: 3}
     footsteps: {fileID: 0}
   bgmTracks:
   - trackName: 

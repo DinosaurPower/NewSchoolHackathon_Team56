@@ -3641,9 +3641,9 @@ MonoBehaviour:
   interactionManager: {fileID: 1060533085}
   LostPossessions:
   - {fileID: 372810344}
+  - {fileID: 1913074267}
   - {fileID: 1823792715}
   - {fileID: 894088378}
-  - {fileID: 1913074267}
   Body: {fileID: 669099230}
   Voice: {fileID: 1149227850}
 --- !u!4 &441075489
@@ -7204,9 +7204,9 @@ MonoBehaviour:
   interactionManager: {fileID: 1060533085}
   LostPossessions:
   - {fileID: 1045087853}
-  - {fileID: 1598289438}
-  - {fileID: 1996187330}
   - {fileID: 538122101}
+  - {fileID: 1996187330}
+  - {fileID: 1598289438}
   Body: {fileID: 964157149}
   Voice: {fileID: 1149227850}
 --- !u!4 &803783341
