@@ -59,4 +59,14 @@ public void Footsteps()
         yield return new WaitForSeconds(0.5f); // adjust timing here
     }
 }
+
+        public void DoorOpen()
+    {
+        Voice.PlaySfx(SfxId.DoorOpen, 1);
+    } 
+    public void DoorClose()
+    {
+        Voice.PlaySfx(SfxId.DoorClose, 1);
+    }
+
 }

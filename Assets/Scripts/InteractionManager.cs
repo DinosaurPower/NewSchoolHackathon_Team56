@@ -77,6 +77,7 @@ public class InteractionManager : MonoBehaviour
 
         if (currentStoryObjects.Count == 0)
         {
+            
             currentNPC.Body.Leave();
             Debug.Log("You cleared!");
         }
@@ -88,5 +89,6 @@ public class InteractionManager : MonoBehaviour
         currentStoryObjects.Clear();
         currentStoryObjects.AddRange(currentNPC.LostPossessions);
         currentNPC.Body.MovingInAndOut.SetTrigger("WalkIn");
+        
     }
 }

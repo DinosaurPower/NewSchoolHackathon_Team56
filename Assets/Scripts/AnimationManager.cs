@@ -63,4 +63,17 @@ public class AnimationManager : MonoBehaviour
     }
 
 
+        public void DoorOpen()
+    {
+        interactionManager.currentNPC.Voice.PlaySfx(SfxId.DoorOpen, 1);
+    } 
+    public void DoorClose()
+    {
+        interactionManager.currentNPC.Voice.PlaySfx(SfxId.DoorClose, 1);
+    }
+    public void TrainMode(AmbienceId ambienceId)
+    {
+        interactionManager.currentNPC.Voice.PlayAmbience(ambienceId, true);
+    }
+
 }
